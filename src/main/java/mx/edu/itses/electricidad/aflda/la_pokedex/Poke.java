@@ -22,12 +22,14 @@ public class Poke extends javax.swing.JFrame {
     public Poke() {
         initComponents();
         Vresultados = new Resultados();
+        Vresultados.setVentanaBuscador(this);
         Vlista = new Lista();
+        Vlista.setVentanaBuscador(this);
 
 
     }
     
-    public void lll(){
+    public void mostrarLista(){
         Vlista.setVisible(true);
     }
 

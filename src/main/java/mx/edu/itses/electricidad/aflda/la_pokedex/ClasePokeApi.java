@@ -27,7 +27,9 @@ public class ClasePokeApi {
             }
 
     
-    public void Pokemon(JTable Pokemo, JTextField Buscador, JTextField nombre, JTextField peso, JTextField altura, JTextField experienciaBase, JLabel foto){
+    public void Pokemon(JTable Pokemo, JTextField Buscador, JLabel nombre, JLabel peso, JLabel altura, JLabel experienciaBase, JLabel foto){
+      
+        
         DefaultTableModel model = new DefaultTableModel();
         String[] nombreCol = {"Nombre", "Peso", "Altura"};
                 

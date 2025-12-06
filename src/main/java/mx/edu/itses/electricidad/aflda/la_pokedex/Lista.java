@@ -13,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Lista extends javax.swing.JFrame {
     
-
+private Poke VB;
+private Resultados res;
     
 
     /**
@@ -21,8 +22,12 @@ public class Lista extends javax.swing.JFrame {
      */
     public Lista() {
         initComponents();
-        
  
+       
+    }
+    
+    public void setVentanaBuscador(Poke buscar){
+        this.VB = buscar;
     }
 
     /**
@@ -36,7 +41,6 @@ public class Lista extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         pokemo = new javax.swing.JTable();
-        busqueda = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,13 +58,6 @@ public class Lista extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(pokemo);
 
-        busqueda.setText("Busqueda");
-        busqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                busquedaActionPerformed(evt);
-            }
-        });
-
         regresar.setText("Regresar");
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,15 +70,9 @@ public class Lista extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(busqueda)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(regresar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(regresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -94,21 +85,17 @@ public class Lista extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(regresar)
-                .addGap(149, 149, 149)
-                .addComponent(busqueda)
-                .addGap(19, 19, 19))
+                .addGap(191, 191, 191))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void busquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaActionPerformed
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_busquedaActionPerformed
-
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-
+      if(VB != null){
+          VB.setVisible(true);
+          this.dispose();
+      }
         // TODO add your handling code here:
     }//GEN-LAST:event_regresarActionPerformed
 
@@ -148,7 +135,6 @@ public class Lista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton busqueda;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable pokemo;
     private javax.swing.JButton regresar;

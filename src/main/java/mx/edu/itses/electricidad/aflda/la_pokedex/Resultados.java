@@ -4,9 +4,7 @@
  */
 package mx.edu.itses.electricidad.aflda.la_pokedex;
 
-import java.net.URL;
-import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -14,8 +12,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Resultados extends javax.swing.JFrame {
 
-    private ClasePokeApi api;
-    private Poke vb;
+    //private Poke vb;
+    private Poke VB;
 
 
     
@@ -24,16 +22,16 @@ public class Resultados extends javax.swing.JFrame {
      */
     public Resultados() {
         initComponents();
-        vb = new Poke();
-
-
-
     }
     
-    public void busqueda(Poke txtBuscador){
-        this.vb = txtBuscador;
-        
+    public void setVentanaBuscador(Poke buscar){
+        this.VB = buscar;
     }
+    
+   // public void busqueda(Poke txtBuscador){
+   //     this.vb = txtBuscador;
+        
+   // }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,12 +49,11 @@ public class Resultados extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         foto = new javax.swing.JLabel();
-        nombre = new javax.swing.JTextField();
-        txtpeso = new javax.swing.JTextField();
-        txtaltura = new javax.swing.JTextField();
-        txtexperiencia = new javax.swing.JTextField();
         listass = new javax.swing.JButton();
-        buscar = new javax.swing.JButton();
+        nombre = new javax.swing.JLabel();
+        txtpeso = new javax.swing.JLabel();
+        txtaltura = new javax.swing.JLabel();
+        txtexperiencia = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,23 +76,16 @@ public class Resultados extends javax.swing.JFrame {
             }
         });
 
-        buscar.setText("Buscar");
-        buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout resultadosLayout = new javax.swing.GroupLayout(resultados);
         resultados.setLayout(resultadosLayout);
         resultadosLayout.setHorizontalGroup(
             resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resultadosLayout.createSequentialGroup()
-                .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(resultadosLayout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(29, 29, 29)
-                        .addComponent(txtexperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtexperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(resultadosLayout.createSequentialGroup()
                         .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -103,9 +93,9 @@ public class Resultados extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(38, 38, 38)
                         .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombre)
-                            .addComponent(txtaltura, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                            .addComponent(txtpeso))))
+                            .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(txtpeso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtaltura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -114,37 +104,33 @@ public class Resultados extends javax.swing.JFrame {
             .addGroup(resultadosLayout.createSequentialGroup()
                 .addGap(226, 226, 226)
                 .addComponent(listass)
-                .addGap(86, 86, 86)
-                .addComponent(buscar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         resultadosLayout.setVerticalGroup(
             resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resultadosLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(28, 28, 28)
                 .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(nombre))
+                .addGap(29, 29, 29)
                 .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(resultadosLayout.createSequentialGroup()
                         .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
+                            .addComponent(txtpeso))
+                        .addGap(30, 30, 30)
                         .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtaltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
+                            .addComponent(txtaltura))
+                        .addGap(39, 39, 39)
                         .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtexperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtexperiencia)))
+                    .addComponent(foto, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
                 .addGap(9, 9, 9)
-                .addGroup(resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(listass)
-                    .addComponent(buscar))
+                .addComponent(listass)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -170,14 +156,11 @@ public class Resultados extends javax.swing.JFrame {
 
     private void listassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listassActionPerformed
         
-        if(vb != null){
-            vb.setVisible(true);
+        if(VB != null){
+            VB.mostrarLista();
         }
         this.dispose();
     }//GEN-LAST:event_listassActionPerformed
-
-    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-    }//GEN-LAST:event_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,7 +198,6 @@ public class Resultados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buscar;
     private javax.swing.JLabel foto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -223,28 +205,28 @@ public class Resultados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton listass;
-    private javax.swing.JTextField nombre;
+    private javax.swing.JLabel nombre;
     private javax.swing.JPanel resultados;
-    private javax.swing.JTextField txtaltura;
-    private javax.swing.JTextField txtexperiencia;
-    private javax.swing.JTextField txtpeso;
+    private javax.swing.JLabel txtaltura;
+    private javax.swing.JLabel txtexperiencia;
+    private javax.swing.JLabel txtpeso;
     // End of variables declaration//GEN-END:variables
- public javax.swing.JTextField gettxtnombre(){
+ public javax.swing.JLabel gettxtnombre(){
          
          return nombre;
          
  }
- public javax.swing.JTextField gettxtpeso(){
+ public javax.swing.JLabel gettxtpeso(){
          
          return txtpeso;
          
  }
- public javax.swing.JTextField gettxtaltura(){
+ public javax.swing.JLabel gettxtaltura(){
          
          return txtaltura;
          
  }
- public javax.swing.JTextField gettxtexperiencia(){
+ public javax.swing.JLabel gettxtexperiencia(){
          
          return txtexperiencia;
          
